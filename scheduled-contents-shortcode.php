@@ -12,6 +12,9 @@
  * @package         Scheduled_Contents_Shortcode
  */
 
+require dirname( __FILE__ ) . '/src/class-scheduler.php';
+
+use Scheduled_Contents_Shortcode\Scheduler;
 
 class Scheduled_Contents_Shortcode {
 
@@ -33,45 +36,23 @@ class Scheduled_Contents_Shortcode {
 			'until' => '',
 		], $attributes, 'schedule' );
 
-		$now   = current_time( 'timestamp' );
-		$published_on    = 0;
-		$published_until = INF;
+		$scheduler = new Scheduler( current_time( 'timestamp' ) );
 
-		if ( $attributes['on'] ) {
-			$published_on = date_i18n( 'U', strtotime( $attributes['on'] ) );
-		}
+		$on = date_i18n( 'U', strtotime( $attributes['on'] ) );
+		$scheduler->set_published_on( $on );
 
 		if ( $attributes['until'] ) {
-			$published_until = date_i18n( 'U', strtotime( $attributes['until'] ) );
+			$until = date_i18n( 'U', strtotime( $attributes['until'] ) );
+			$scheduler->set_published_until( $until );
 		}
 
-		if( $published_on < $now && $now < $published_until ) {
+		if ( $scheduler->is_published() ) {
 			return $content;
 		}
 
 		return '';
 	}
 
-	/**
-	 * @param $now
-	 * @param $time
-	 *
-	 * @return bool
-	 *
-	 */
-	public static function is_started( $now, $time ) {
-		return $time <= $now;
-	}
-
-	/**
-	 * @param $now
-	 * @param $time
-	 *
-	 * @return bool
-	 */
-	public static function is_expired( $now, $time ) {
-		return $time <= $now;
-	}
 }
 
 new Scheduled_Contents_Shortcode();
