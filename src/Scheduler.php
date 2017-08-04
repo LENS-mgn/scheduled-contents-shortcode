@@ -28,7 +28,6 @@ class Scheduler {
 		$this->now = $now;
 	}
 
-
 	/**
 	 * @param int $published_on
 	 */
