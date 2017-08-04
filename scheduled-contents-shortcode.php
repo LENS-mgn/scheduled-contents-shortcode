@@ -12,7 +12,7 @@
  * @package         Scheduled_Contents_Shortcode
  */
 
-require dirname( __FILE__ ) . '/src/class-scheduler.php';
+require dirname( __FILE__ ) . '/src/Scheduler.php';
 
 use Scheduled_Contents_Shortcode\Scheduler;
 
