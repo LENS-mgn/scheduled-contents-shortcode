@@ -1,0 +1,30 @@
+{
+  "name": "lens-mgn/scheduled-contents-shortcode",
+  "description": "",
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/LENS-mgn/scheduled-contents-shortcode",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Hiroshi Urabe",
+      "email": "mail@torounit.com"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.0.2",
+    "wp-coding-standards/wpcs": "^0.13.0"
+  },
+  "scripts": {
+    "scripts": {
+      "post-install-cmd": [
+        "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+      ],
+      "post-update-cmd": [
+        "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+      ],
+      "phpcs": [
+        "php vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php"
+      ]
+    }
+  }
+}
