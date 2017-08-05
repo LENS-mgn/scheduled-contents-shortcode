@@ -15,7 +15,6 @@
     "wp-coding-standards/wpcs": "^0.13.0"
   },
   "scripts": {
-    "scripts": {
       "post-install-cmd": [
         "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
       ],
@@ -26,5 +25,4 @@
         "php vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php"
       ]
     }
-  }
 }
