@@ -17,6 +17,37 @@ class Shortcode {
 	 */
 	public function __construct() {
 		add_shortcode( 'schedule', [ $this, 'shortcode' ] );
+		$this->shortcode_ui();
+	}
+
+	/**
+	 * Register shortcode_ui.
+	 */
+	public function shortcode_ui() {
+		if ( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+			shortcode_ui_register_for_shortcode( 'schedule',
+				array(
+					'label'         => 'Schedule',
+					'listItemImage' => 'dashicons-calendar-alt',
+					'attrs'         => array(
+						array(
+							'label' => 'From',
+							'attr'  => 'from',
+							'type'  => 'datetime-local',
+						),
+						array(
+							'label' => 'To',
+							'attr'  => 'to',
+							'type'  => 'datetime-local',
+						),
+					),
+					'inner_content' => array(
+						'label'        => esc_html__( 'Contents', 'scheduled-contents-shortcode' ),
+						'value'        => '',
+					),
+				)
+			);
+		}
 	}
 
 	/**

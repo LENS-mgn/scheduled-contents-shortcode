@@ -19,7 +19,14 @@
 
 require dirname( __FILE__ ) . '/src/Shortcode.php';
 require dirname( __FILE__ ) . '/src/Scheduler.php';
+require dirname( __FILE__ ) . '/src/Shortcake_Datetime_Field.php';
 
+use Scheduled_Contents_Shortcode\Shortcake_Datetime_Field;
 use Scheduled_Contents_Shortcode\Shortcode;
 
-new Shortcode();
+add_action( 'init', function () {
+	new Shortcake_Datetime_Field();
+	new Shortcode();
+});
+
+
