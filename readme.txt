@@ -17,7 +17,7 @@ Adds shortcode [schedule]. Simple way to show and hide content by datetime.
 
 = Requirement =
 
-* PHP 5.6+
+* PHP 5.5+
 
 
 == Installation ==
