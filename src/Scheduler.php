@@ -52,7 +52,6 @@ class Scheduler {
 	/**
 	 *
 	 * @return bool
-	 *
 	 */
 	public function is_started() {
 		return $this->published_from < $this->now;

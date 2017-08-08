@@ -18,8 +18,8 @@ class Shortcode {
 	/**
 	 * Shortcode
 	 *
-	 * @param array   $attributes
-	 * @param string  $content
+	 * @param array  $attributes
+	 * @param string $content
 	 *
 	 * @return string
 	 */
