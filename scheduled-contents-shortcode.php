@@ -17,12 +17,15 @@
  * Version:         1.0.0
  */
 
-require dirname( __FILE__ ) . '/src/Shortcode.php';
-require dirname( __FILE__ ) . '/src/Scheduler.php';
-require dirname( __FILE__ ) . '/src/Shortcake_Datetime_Field.php';
+namespace Scheduled_Contents_Shortcode;
 
-use Scheduled_Contents_Shortcode\Shortcake_Datetime_Field;
-use Scheduled_Contents_Shortcode\Shortcode;
+const PLUGIN_PATH = __FILE__;
+
+require dirname( PLUGIN_PATH ) . '/src/Shortcode.php';
+require dirname( PLUGIN_PATH ) . '/src/Scheduler.php';
+require dirname( PLUGIN_PATH ) . '/src/Shortcake_Datetime_Field.php';
+
+
 
 add_action( 'init', function () {
 	new Shortcake_Datetime_Field();

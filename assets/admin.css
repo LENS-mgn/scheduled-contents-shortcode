@@ -1,0 +1,14 @@
+input[type=datetime-local] + .validity .dashicons {
+	display: none;
+	vertical-align: middle;
+}
+
+input[type=datetime-local]:invalid + .validity .dashicons-no {
+	display: inline-block;
+	color: #DC3232;
+}
+
+input[type=datetime-local]:valid + .validity .dashicons-yes {
+	display: inline-block;
+	color: #46B450;
+}
