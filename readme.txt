@@ -1,7 +1,7 @@
 === Scheduled Contents Shortcode ===
 Contributors: megane9988, Toro_Unit
 Tags: shortcode, schedule
-Requires at least: 4.4
+Requires at least: 4.7
 Tested up to: 4.8.1
 Stable tag: 1.0.0
 License: GPLv2 or later

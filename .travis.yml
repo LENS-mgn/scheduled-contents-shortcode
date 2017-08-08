@@ -25,15 +25,11 @@ env:
   - WP_VERSION=latest WP_MULTISITE=1
   - WP_VERSION=4.8.1 WP_MULTISITE=0
   - WP_VERSION=4.8.1 WP_MULTISITE=1
+  - WP_VERSION=4.4 WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=1
 
 matrix:
   include:
-    - php: 5.5
-      env: WP_VERSION=4.8.1 WP_MULTISITE=0
-    - php: 5.5
-      env: WP_VERSION=4.8.1 WP_MULTISITE=1
-    - php: 5.5
-      env: WP_VERSION=latest WP_MULTISITE=0
     - php: 5.5
       env: WP_VERSION=latest WP_MULTISITE=1 WP_PULUGIN_DEPLOY=1
 
@@ -54,4 +50,6 @@ before_script:
 script:
   - phpunit
   - composer phpcs
+
+after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash
 
