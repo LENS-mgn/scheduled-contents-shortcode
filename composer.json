@@ -18,14 +18,14 @@
     "wp-coding-standards/wpcs": "^0.13.0"
   },
   "scripts": {
-      "post-install-cmd": [
-        "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
-      ],
-      "post-update-cmd": [
-        "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
-      ],
-      "phpcs": [
-        "php vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php"
-      ]
-    }
+    "post-install-cmd": [
+      "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+    ],
+    "post-update-cmd": [
+      "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+    ],
+    "phpcs": [
+      "php vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php"
+    ]
+  }
 }
