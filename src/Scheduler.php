@@ -1,20 +1,34 @@
 <?php
+/**
+ * Scheduler Class
+ *
+ * @package Scheduled_Contents_Shortcode
+ */
 
 namespace Scheduled_Contents_Shortcode;
 
+/**
+ * Class Scheduler
+ */
 class Scheduler {
 
 	/**
+	 * Current timestamp.
+	 *
 	 * @var int
 	 */
 	private $now;
 
 	/**
+	 * From timestamp.
+	 *
 	 * @var int
 	 */
 	private $published_from = 0;
 
 	/**
+	 * On timestamp.
+	 *
 	 * @var int
 	 */
 	private $published_to = INF;
@@ -22,27 +36,33 @@ class Scheduler {
 	/**
 	 * Scheduler constructor.
 	 *
-	 * @param $now
+	 * @param int $now timestamp.
 	 */
 	public function __construct( $now ) {
 		$this->now = $now;
 	}
 
 	/**
-	 * @param int $published_from
+	 * Setter published_from.
+	 *
+	 * @param int $published_from timestamp.
 	 */
-	public function set_published_from( int $published_from ) {
+	public function set_published_from( $published_from ) {
 		$this->published_from = $published_from;
 	}
 
 	/**
-	 * @param int $published_to
+	 * Setter published_to.
+	 *
+	 * @param int $published_to timestamp.
 	 */
-	public function set_published_to( int $published_to ) {
+	public function set_published_to( $published_to ) {
 		$this->published_to = $published_to;
 	}
 
 	/**
+	 * Is published contents.
+	 *
 	 * @return bool
 	 */
 	public function is_published() {
@@ -50,6 +70,7 @@ class Scheduler {
 	}
 
 	/**
+	 * Is started publish.
 	 *
 	 * @return bool
 	 */
@@ -58,6 +79,7 @@ class Scheduler {
 	}
 
 	/**
+	 * Is expired publish.
 	 *
 	 * @return bool
 	 */

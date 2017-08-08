@@ -1,32 +1,36 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: torounit
- * Date: 2017/08/05
- * Time: 8:37
+ * Shortcode Class
+ *
+ * @package Scheduled_Contents_Shortcode
  */
 
 namespace Scheduled_Contents_Shortcode;
 
-
+/**
+ * Class Shortcode
+ */
 class Shortcode {
 
+	/**
+	 * Shortcode constructor.
+	 */
 	public function __construct() {
 		add_shortcode( 'schedule', [ $this, 'shortcode' ] );
 	}
 
 	/**
-	 * Shortcode
+	 * Register shortcode
 	 *
-	 * @param array  $attributes
-	 * @param string $content
+	 * @param array  $attributes attributes for shortcode.
+	 * @param string $content html contents.
 	 *
 	 * @return string
 	 */
 	public function shortcode( $attributes, $content ) {
 		$attributes = shortcode_atts( [
-			'from'    => '1970-01-01T00:00',
-			'to' => '',
+			'from' => '1970-01-01T00:00',
+			'to'   => '',
 		], $attributes, 'schedule' );
 
 		$scheduler = new Scheduler( current_time( 'timestamp' ) );
@@ -40,7 +44,7 @@ class Shortcode {
 		}
 
 		if ( $scheduler->is_published() ) {
-			return $content;
+			return do_shortcode( $content );
 		}
 
 		return '';

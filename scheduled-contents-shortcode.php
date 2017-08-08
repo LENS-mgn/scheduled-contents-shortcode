@@ -1,5 +1,12 @@
 <?php
 /**
+ * Adds shortcode [schedule]. Simple way to show and hide content by datetime.
+ *
+ * @package Scheduled_Contents_Shortcode
+ * @version 1.0.0
+ */
+
+/**
  * Plugin Name:     Scheduled Contents Shortcode
  * Plugin URI:      https://github.com/LENS-mgn/scheduled-contents-shortcode
  * Description:     show or hidden contents for datetime.
@@ -8,8 +15,6 @@
  * Text Domain:     scheduled-contents-shortcode
  * Domain Path:     /languages
  * Version:         1.0.0
- *
- * @package         Scheduled_Contents_Shortcode
  */
 
 require dirname( __FILE__ ) . '/src/Shortcode.php';
