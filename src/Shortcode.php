@@ -25,18 +25,18 @@ class Shortcode {
 	 */
 	public function shortcode( $attributes, $content ) {
 		$attributes = shortcode_atts( [
-			'on'    => '1970-01-01T00:00',
-			'until' => '',
+			'from'    => '1970-01-01T00:00',
+			'to' => '',
 		], $attributes, 'schedule' );
 
 		$scheduler = new Scheduler( current_time( 'timestamp' ) );
 
-		$on = date_i18n( 'U', strtotime( $attributes['on'] ) );
-		$scheduler->set_published_on( $on );
+		$from = date_i18n( 'U', strtotime( $attributes['from'] ) );
+		$scheduler->set_published_from( $from );
 
-		if ( $attributes['until'] ) {
-			$until = date_i18n( 'U', strtotime( $attributes['until'] ) );
-			$scheduler->set_published_until( $until );
+		if ( $attributes['to'] ) {
+			$to = date_i18n( 'U', strtotime( $attributes['to'] ) );
+			$scheduler->set_published_to( $to );
 		}
 
 		if ( $scheduler->is_published() ) {

@@ -12,12 +12,12 @@ class Scheduler {
 	/**
 	 * @var int
 	 */
-	private $published_on = 0;
+	private $published_from = 0;
 
 	/**
 	 * @var int
 	 */
-	private $published_until = INF;
+	private $published_to = INF;
 
 	/**
 	 * Scheduler constructor.
@@ -29,17 +29,17 @@ class Scheduler {
 	}
 
 	/**
-	 * @param int $published_on
+	 * @param int $published_from
 	 */
-	public function set_published_on( int $published_on ) {
-		$this->published_on = $published_on;
+	public function set_published_from( int $published_from ) {
+		$this->published_from = $published_from;
 	}
 
 	/**
-	 * @param int $published_until
+	 * @param int $published_to
 	 */
-	public function set_published_until( int $published_until ) {
-		$this->published_until = $published_until;
+	public function set_published_to( int $published_to ) {
+		$this->published_to = $published_to;
 	}
 
 	/**
@@ -55,7 +55,7 @@ class Scheduler {
 	 *
 	 */
 	public function is_started() {
-		return $this->published_on < $this->now;
+		return $this->published_from < $this->now;
 	}
 
 	/**
@@ -63,7 +63,7 @@ class Scheduler {
 	 * @return bool
 	 */
 	public function is_expired() {
-		return $this->now < $this->published_until;
+		return $this->now < $this->published_to;
 	}
 
 }

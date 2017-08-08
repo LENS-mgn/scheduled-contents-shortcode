@@ -7,7 +7,7 @@
  * Author URI:      https://www.m-g-n.me/
  * Text Domain:     scheduled-contents-shortcode
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         1.0.0
  *
  * @package         Scheduled_Contents_Shortcode
  */
