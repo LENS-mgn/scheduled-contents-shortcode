@@ -1,0 +1,21 @@
+{
+  "name": "scheduled-contents-shortcode",
+  "version": "1.0.0",
+  "description": "Adds shortcode [schedule]. Simple way to show and hide content by datetime.",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LENS-mgn/scheduled-contents-shortcode.git"
+  },
+  "author": "",
+  "license": "GPL2.0+",
+  "bugs": {
+    "url": "https://github.com/LENS-mgn/scheduled-contents-shortcode/issues"
+  },
+  "homepage": "https://github.com/LENS-mgn/scheduled-contents-shortcode#readme"
+}
