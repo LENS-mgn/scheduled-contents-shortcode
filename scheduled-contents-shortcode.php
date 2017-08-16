@@ -3,7 +3,7 @@
  * Adds shortcode [schedule]. Simple way to show and hide content by datetime.
  *
  * @package Scheduled_Contents_Shortcode
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -14,7 +14,7 @@
  * Author URI:      https://www.m-g-n.me/
  * Text Domain:     scheduled-contents-shortcode
  * Domain Path:     /languages
- * Version:         1.0.1
+ * Version:         1.0.2
  */
 
 namespace Scheduled_Contents_Shortcode;
