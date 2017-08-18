@@ -14,8 +14,14 @@ class ShortcodeTest extends WP_UnitTestCase {
 	 * @test
 	 */
 	public function test_collectP() {
-		$actual = do_shortcode( '[schedule]<p>content</p>[/schedule]' );
-		$this->assertEquals( '<p>content</p>', $actual );
+		global $post;
+		$post = $this->factory()->post->create_and_get( [
+			'post_content' => '[schedule]<p>content</p>[/schedule]',
+		] );
+		setup_postdata( $post );
+		$this->expectOutputRegex( '/<p>content<\/p>/' );
+		the_content();
+		wp_reset_postdata();
 	}
 
 
@@ -59,9 +65,9 @@ class ShortcodeTest extends WP_UnitTestCase {
 	 * @test
 	 */
 	public function test_from_past_datetime_and_to_future_datetime() {
-		$from = date_i18n( 'Y-m-d\TH:i:s', strtotime( '-1 hour' ) );
-		$to = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+1 hour' ) );
-		$actual   = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
+		$from   = date_i18n( 'Y-m-d\TH:i:s', strtotime( '-1 hour' ) );
+		$to     = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+1 hour' ) );
+		$actual = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
 		$this->assertEquals( 'content', $actual );
 	}
 
@@ -69,9 +75,9 @@ class ShortcodeTest extends WP_UnitTestCase {
 	 * @test
 	 */
 	public function test_from_past_datetime_and_to_past_datetime() {
-		$from = date_i18n( 'Y-m-d\TH:i:s', strtotime( '-2 hour' ) );
-		$to = date_i18n( 'Y-m-d\TH:i:s', strtotime( '-1 hour' ) );
-		$actual   = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
+		$from   = date_i18n( 'Y-m-d\TH:i:s', strtotime( '-2 hour' ) );
+		$to     = date_i18n( 'Y-m-d\TH:i:s', strtotime( '-1 hour' ) );
+		$actual = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
 		$this->assertEquals( '', $actual );
 	}
 
@@ -79,9 +85,9 @@ class ShortcodeTest extends WP_UnitTestCase {
 	 * @test
 	 */
 	public function test_from_future_datetime_and_to_future_datetime() {
-		$from = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+1 hour' ) );
-		$to = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+2 hour' ) );
-		$actual   = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
+		$from   = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+1 hour' ) );
+		$to     = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+2 hour' ) );
+		$actual = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
 		$this->assertEquals( '', $actual );
 	}
 
@@ -91,9 +97,9 @@ class ShortcodeTest extends WP_UnitTestCase {
 	 * error case.
 	 */
 	public function test_from_future_datetime_and_to_past_datetime() {
-		$from = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+1 hour' ) );
-		$to = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+2 hour' ) );
-		$actual   = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
+		$from   = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+1 hour' ) );
+		$to     = date_i18n( 'Y-m-d\TH:i:s', strtotime( '+2 hour' ) );
+		$actual = do_shortcode( '[schedule from="' . $from . '" to="' . $to . '"]content[/schedule]' );
 		$this->assertEquals( '', $actual );
 	}
 
