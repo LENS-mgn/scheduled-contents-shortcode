@@ -42,8 +42,8 @@ class Shortcode {
 						),
 					),
 					'inner_content' => array(
-						'label'        => esc_html__( 'Contents', 'scheduled-contents-shortcode' ),
-						'value'        => '',
+						'label' => esc_html__( 'Contents', 'scheduled-contents-shortcode' ),
+						'value' => '',
 					),
 				)
 			);
@@ -75,7 +75,7 @@ class Shortcode {
 		}
 
 		if ( $scheduler->is_published() ) {
-			return do_shortcode( $content );
+			return preg_replace( [ '/^<\/p>/', '/<p>$/' ], '', do_shortcode( $content ) );
 		}
 
 		return '';

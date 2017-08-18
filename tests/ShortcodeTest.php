@@ -10,6 +10,14 @@
  */
 class ShortcodeTest extends WP_UnitTestCase {
 
+	/**
+	 * @test
+	 */
+	public function test_collectP() {
+		$actual = do_shortcode( '[schedule]<p>content</p>[/schedule]' );
+		$this->assertEquals( '<p>content</p>', $actual );
+	}
+
 
 	/**
 	 * @test
